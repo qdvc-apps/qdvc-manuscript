@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  QDVC Manuscript runs in the App Sandbox with NO network entitlement
+  (com.apple.security.network.client / .server are deliberately absent),
+  so macOS itself refuses any network connection the app might attempt.
+
+  It may read and write only folders the user chooses (the workspace, and
+  export destinations) and keep access to them across launches through
+  security-scoped bookmarks. The QDVC Bibliotheca library's bookmark is
+  created read-only (docs/DESIGN.md, Data security).
+-->
+<plist version="1.0">
+<dict>
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<key>com.apple.security.files.user-selected.read-write</key>
+	<true/>
+	<key>com.apple.security.files.bookmarks.app-scope</key>
+	<true/>
+</dict>
+</plist>
